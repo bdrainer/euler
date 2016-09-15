@@ -39,9 +39,11 @@ class SumSquareDiffApi {
 
         sumSqr = sum.multiply(sum)
 
-        println "$sumSqr $sumOfSqr"
-        println "${sumSqr.subtract(sumOfSqr).toString()}"
+        def answer = sumSqr.subtract(sumOfSqr).toString()
 
-        return sumSqr.subtract(sumOfSqr)
+        println "$sumSqr - $sumOfSqr = $answer"
+        println sumSqr.subtract(sumOfSqr).toString()
+
+        return answer
     }
 }
