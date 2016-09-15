@@ -26,21 +26,17 @@ class SmallestMultipleApi {
     }
 
     int gcd(int a, int b) {
-        println "gcd: a=$a, b=$b"
         if (b == 0) return a
         return gcd(b, a % b)
     }
 
     int lcm(int a, int b) {
-        println "lcm: a-$a, b=$b"
         return a * (b / gcd(a, b))
     }
 
     int lcm(int[] input) {
-        println "lcm: $input"
         int result = input[0]
         for (int i = 1; i < input.length; i++) {
-            println "i=$i : result = $result : input[$i]= ${input[i]}"
             result = lcm(result, input[i])
         }
         return result
