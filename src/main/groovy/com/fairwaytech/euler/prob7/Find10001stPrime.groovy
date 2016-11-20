@@ -1,4 +1,4 @@
-package com.fairwaytech.euler
+package com.fairwaytech.euler.prob7
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController
  * What is the 10001st prime number?
  */
 @RestController
-class Find10001stPrimeApi {
+class Find10001stPrime {
 
     @GetMapping("/nthprime/{nth}")
     def getNthPrime(@PathVariable long nth) {

@@ -1,4 +1,4 @@
-package com.fairwaytech.euler
+package com.fairwaytech.euler.prob6
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController
  * Answer: 25164150
  */
 @RestController
-class SumSquareDiffApi {
+class SumSquareDiff {
 
     @GetMapping("sumsquarediff")
     def sumSquareDifference() {

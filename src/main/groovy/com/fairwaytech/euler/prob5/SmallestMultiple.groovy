@@ -1,4 +1,4 @@
-package com.fairwaytech.euler
+package com.fairwaytech.euler.prob5
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController
  * What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
  */
 @RestController
-class SmallestMultipleApi {
+class SmallestMultiple {
 
     @GetMapping("/smallestmultiple/{maxValue}")
     int calculate(@PathVariable int maxValue) {
