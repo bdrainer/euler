@@ -60,6 +60,9 @@ class FibonacciTest {
         assertValue(fib.calculate(11), 89)
         assertValue(fib.calculate(12), 144)
         assertValue(fib.calculate(13), 233)
+        assertValue(fib.calculate(100), "354224848179261915075")
+        // over 600 stackoverflow starts
+        assertValue(fib.calculate(500), "139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125")
     }
 
     void assertValue(BigInteger actual, def expected) {

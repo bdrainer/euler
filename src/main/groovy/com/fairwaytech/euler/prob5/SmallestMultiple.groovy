@@ -1,10 +1,10 @@
 package com.fairwaytech.euler.prob5
 
+import com.fairwaytech.euler.util.EulerMath
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
-
-
 /**
  * Problem 5 - Smallest Multiple
  *
@@ -15,30 +15,12 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class SmallestMultiple {
 
+    @Autowired
+    EulerMath eulerMath
+
     @GetMapping("/smallestmultiple/{maxValue}")
     int calculate(@PathVariable int maxValue) {
-        def range = (1..maxValue)
-        def rangeArray = new int[range.to];
-
-        range.each() { rangeArray[it - 1] = it }
-
-        return lcm(rangeArray)
-    }
-
-    int gcd(int a, int b) {
-        if (b == 0) return a
-        return gcd(b, a % b)
-    }
-
-    int lcm(int a, int b) {
-        return a * (b / gcd(a, b))
-    }
-
-    int lcm(int[] input) {
-        int result = input[0]
-        for (int i = 1; i < input.length; i++) {
-            result = lcm(result, input[i])
-        }
-        return result
+        def rangeList = (1..maxValue).collect { it }
+        return eulerMath.lcm(rangeList)
     }
 }
