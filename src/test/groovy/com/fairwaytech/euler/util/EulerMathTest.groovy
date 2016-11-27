@@ -2,12 +2,41 @@ package com.fairwaytech.euler.util
 
 import org.junit.Test
 
+import static junit.framework.TestCase.assertTrue
 import static org.assertj.core.api.Assertions.assertThat
-
 
 class EulerMathTest {
 
     def eulerMath = new EulerMath();
+
+    @Test
+    void itShouldFindLargestPalindromeProduct() {
+        assertThat(eulerMath.largestPalindromeProduct()).isEqualTo(906609)
+    }
+
+    @Test
+    void itShouldCheckIfNumberIsPalindrome() {
+        assertThat(eulerMath.isPalindrome(1111)).isTrue()
+        assertThat(eulerMath.isPalindrome(9009)).isTrue()
+        assertThat(eulerMath.isPalindrome(9119)).isTrue()
+        assertThat(eulerMath.isPalindrome(1234)).isFalse()
+
+        assertThat(eulerMath.isPalindrome(9119L)).isTrue()
+        assertThat(eulerMath.isPalindrome(1234L)).isFalse()
+
+        assertThat(eulerMath.isPalindrome('9119')).isTrue()
+        assertThat(eulerMath.isPalindrome('1234')).isFalse()
+
+    }
+
+    @Test
+    void itShouldCalculateLargestPrimeNumber() {
+        assertValue(eulerMath.largestPrimeFactor(2), 2)
+        assertValue(eulerMath.largestPrimeFactor(15), 5)
+        assertValue(eulerMath.largestPrimeFactor(1787866), 893933)
+        assertValue(eulerMath.largestPrimeFactor(600851475143), 6857)
+        assertTrue(eulerMath.isPrime(6857))
+    }
 
     @Test
     void itShouldCalculateGCD() {
