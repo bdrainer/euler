@@ -87,9 +87,8 @@ class EulerMath {
 
     def largestPalindromeProduct() {
         def result
-        (999..100).each {
-            def x = it
-            (it..100).each { y ->
+        (999..100).each { x ->
+            (x..100).each { y ->
                 def check = x * y
                 if (isPalindrome(check)) {
                     if (check > result) {
