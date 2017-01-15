@@ -20,7 +20,7 @@ class LargestProductInSeries {
         def list = []
 
         // collect 13 length digits
-        for (int i = 0; i + 12 < number.size() ; ++i) {
+        for (int i = 0; i + 12 < number.size(); ++i) {
             def val = number.substring(i, i + 13)
             // any value with a 0 is excluded
             if (val.indexOf('0') == -1) {

@@ -10,6 +10,22 @@ class EulerMathTest {
     def eulerMath = new EulerMath();
 
     @Test
+    void itShouldGetSpecialPyTriplet() {
+        def start = System.currentTimeMillis();
+        def product = eulerMath.getSpecialPyTripletProduct()
+        println "Elapsed Time: ${System.currentTimeMillis() - start}"
+        println product
+    }
+
+    @Test
+    void itShouldGetLargestProduct() {
+        def start = System.currentTimeMillis();
+        println eulerMath.getLargestProduct()
+        def end = System.currentTimeMillis();
+        println "Time: ${end - start} millis"
+    }
+
+    @Test
     void itShouldFindLargestPalindromeProduct() {
         assertThat(eulerMath.largestPalindromeProduct()).isEqualTo(906609)
     }
