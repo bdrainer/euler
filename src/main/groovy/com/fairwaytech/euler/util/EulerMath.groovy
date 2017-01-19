@@ -7,6 +7,35 @@ import static java.lang.String.valueOf
 @Component
 class EulerMath {
 
+    //find all prime number up to max using Sieve of Eratosthenes
+    //http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+    List<BigInteger> generatePrimes(int max) {
+        List<BigInteger> temp = [2]
+
+        BigInteger index = 1
+        BigInteger prime = 1
+
+        boolean isPrime = false
+
+        while((prime += 2) <= max) {
+            isPrime = true;
+            for(int i = 0; i < index; i++) {
+                if(prime % temp [i] == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if(isPrime) {
+                temp [index++] = prime;
+            }
+        }
+        int [] primes = new int [index];
+        while(--index >= 0) {
+            primes [index] = temp [index];
+        }
+        return primes;
+    }
+
     def getSpecialPyTripletProduct() {
         boolean found = false
         def (max, fx, fy, fz) = [500, 0, 0, 0]
@@ -99,6 +128,43 @@ class EulerMath {
 
         def sumSqr = sum.multiply(sum)
         sumSqr.subtract(sumOfSqr)
+    }
+
+    def getPrimes(int max) {
+        def nums = [:]
+        for (i in 2..max) {
+            nums.put(i,0) //all zeroed (un-marked) at start
+        }
+
+        def step = 2
+        while (step < max) {
+            def i = step + step
+            while (i <= max) {
+                nums.put(i,1) //mark as non-prime
+                i += step
+            }
+
+            //find first unmarked number > step
+            if ((step + step) > max) {
+                break //no more
+            }
+            for (lp in (step+1)..max) {
+                if (nums.get(lp) == 0) {
+                    step = lp //step value is next unmarked
+                    break
+                }
+            }
+        }
+
+        //return list of all unmarked entries
+        def result = []
+        for (i in nums) {
+            if (i.value == 0) {
+                result.add(i.key)
+            }
+        }
+
+        result
     }
 
     BigInteger calculatePrime(BigInteger n) {

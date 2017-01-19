@@ -10,6 +10,21 @@ class EulerMathTest {
     def eulerMath = new EulerMath();
 
     @Test
+    void itShouldGetPrimes() {
+        def max = 2000000
+
+        def start = System.currentTimeMillis()
+        def result = eulerMath.getPrimes(max)
+        def end = System.currentTimeMillis()
+
+        def total = BigInteger.valueOf(0L)
+        result.each {
+            total += it
+        }
+        assert BigInteger.valueOf(142913828922L) == total
+    }
+
+    @Test
     void itShouldGetSpecialPyTriplet() {
         def start = System.currentTimeMillis();
         def product = eulerMath.getSpecialPyTripletProduct()
