@@ -5,14 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 /**
- * Problem 9 - Special Pythagorean Triplet
+ * Problem 10 - Summation of Primes
  *
- * A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
- * a2 + b2 = c2
+ * The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
  *
- * For example, 32 + 42 = 9 + 16 = 25 = 52.
- *
- * There exists exactly one Pythagorean triplet for which a + b + c = 1000.  Find the product abc.
+ * Find the sum of all the primes below two million.
  *
  */
 @RestController
