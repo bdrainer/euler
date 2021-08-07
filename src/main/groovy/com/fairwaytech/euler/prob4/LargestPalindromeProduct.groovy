@@ -4,6 +4,7 @@ import com.fairwaytech.euler.util.EulerMath
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Mono
 
 /**
  * Problem 4 - Largest Palindrome Product
@@ -23,6 +24,6 @@ class LargestPalindromeProduct {
 
     @GetMapping("/largestpalindromeproduct")
     def getLargestPalindromProduct() {
-        return eulerMath.largestPalindromeProduct()
+        Mono.just eulerMath.largestPalindromeProduct()
     }
 }

@@ -31,7 +31,7 @@ class LargestProductInSeries {
             def product = 1 as BigInteger
 
             it.each { digit ->
-                product *= new BigInteger(digit)
+                product *= digit
             }
 
             if (largestProduct < product) {

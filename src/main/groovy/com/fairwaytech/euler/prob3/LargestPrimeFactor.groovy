@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Mono
 
 /**
  * Problem 3 - Largest Prime Factor
@@ -21,6 +22,6 @@ class LargestPrimeFactor {
 
     @GetMapping("/largestprimefactor/{value}")
     def getNthPrime(@PathVariable BigInteger value) {
-        return eulerMath.largestPrimeFactor(value)
+        Mono.just eulerMath.largestPrimeFactor(value)
     }
 }

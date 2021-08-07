@@ -1,40 +1,35 @@
-buildscript {
-	ext {
-		springBootVersion = '1.4.0.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+plugins {
+    id 'org.springframework.boot' version '2.5.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'groovy'
 }
 
-apply plugin: 'groovy'
-apply plugin: 'eclipse'
-apply plugin: 'spring-boot'
+group = 'com.fairwaytech'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
 
-jar {
-	baseName = 'euler'
-	version = '0.0.1-SNAPSHOT'
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	compile 'org.springframework.boot:spring-boot-starter-actuator'
-	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-	compile 'org.springframework.boot:spring-boot-devtools'
-	compile 'org.springframework.boot:spring-boot-starter-web'
-	compile 'org.codehaus.groovy:groovy'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.codehaus.groovy:groovy'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+}
 
-	runtime 'com.h2database:h2'
-
-    testCompile 'org.springframework.boot:spring-boot-starter-test'
-    testCompile 'org.assertj:assertj-core:3.5.2'
-
+test {
+    useJUnitPlatform()
 }

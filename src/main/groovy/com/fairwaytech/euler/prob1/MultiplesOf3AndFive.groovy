@@ -3,6 +3,7 @@ package com.fairwaytech.euler.prob1
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Mono
 
 /**
  * Problem 1 - Multiples of 3 and 5
@@ -16,11 +17,11 @@ import org.springframework.web.bind.annotation.RestController
 class MultiplesOf3AndFive {
 
     @GetMapping("/multiplesof3and5/{maxValue}")
-    int calculate(@PathVariable int maxValue) {
+    def calculate(@PathVariable int maxValue) {
         int val = 0
         (1..<maxValue).each {
             val += (it % 3 == 0 || it % 5 == 0) ? it : 0
         }
-        return val
+        Mono.just val
     }
 }

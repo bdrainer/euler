@@ -4,6 +4,8 @@ import com.fairwaytech.euler.util.EulerMath
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Mono
+
 /**
  * Problem 6
  *
@@ -29,7 +31,7 @@ class SumSquareDiff {
     EulerMath eulerMath
 
     @GetMapping("sumsquarediff")
-    def sumSquareDifference() {
-        return eulerMath.sumSquareDiff(100)
+    Mono<BigInteger> sumSquareDifference() {
+        Mono.just eulerMath.sumSquareDiff(100)
     }
 }

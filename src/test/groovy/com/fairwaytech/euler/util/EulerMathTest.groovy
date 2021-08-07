@@ -1,13 +1,12 @@
 package com.fairwaytech.euler.util
 
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
-import static junit.framework.TestCase.assertTrue
 import static org.assertj.core.api.Assertions.assertThat
 
 class EulerMathTest {
 
-    def eulerMath = new EulerMath();
+    def eulerMath = new EulerMath()
 
     @Test
     void itShouldGetPrimes() {
@@ -16,6 +15,8 @@ class EulerMathTest {
         def start = System.currentTimeMillis()
         def result = eulerMath.getPrimes(max)
         def end = System.currentTimeMillis()
+
+        println "Time: ${end - start} millis"
 
         def total = BigInteger.valueOf(0L)
         result.each {
@@ -26,7 +27,7 @@ class EulerMathTest {
 
     @Test
     void itShouldGetSpecialPyTriplet() {
-        def start = System.currentTimeMillis();
+        def start = System.currentTimeMillis()
         def product = eulerMath.getSpecialPyTripletProduct()
         println "Elapsed Time: ${System.currentTimeMillis() - start}"
         println product
@@ -34,9 +35,9 @@ class EulerMathTest {
 
     @Test
     void itShouldGetLargestProduct() {
-        def start = System.currentTimeMillis();
+        def start = System.currentTimeMillis()
         println eulerMath.getLargestProduct()
-        def end = System.currentTimeMillis();
+        def end = System.currentTimeMillis()
         println "Time: ${end - start} millis"
     }
 
@@ -62,11 +63,11 @@ class EulerMathTest {
 
     @Test
     void itShouldCalculateLargestPrimeNumber() {
-        assertValue(eulerMath.largestPrimeFactor(2), 2)
-        assertValue(eulerMath.largestPrimeFactor(15), 5)
-        assertValue(eulerMath.largestPrimeFactor(1787866), 893933)
-        assertValue(eulerMath.largestPrimeFactor(600851475143), 6857)
-        assertTrue(eulerMath.isPrime(6857))
+        assertValue(eulerMath.largestPrimeFactor(2 as BigInteger), 2)
+        assertValue(eulerMath.largestPrimeFactor(15 as BigInteger), 5)
+        assertValue(eulerMath.largestPrimeFactor(1787866 as BigInteger), 893933)
+        assertValue(eulerMath.largestPrimeFactor(600851475143 as BigInteger), 6857)
+        assertThat(eulerMath.isPrime(6857)).isTrue()
     }
 
     @Test

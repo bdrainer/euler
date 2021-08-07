@@ -4,6 +4,8 @@ import com.fairwaytech.euler.util.EulerMath
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Mono
+
 /**
  * Problem 9 - Special Pythagorean Triplet
  *
@@ -26,7 +28,7 @@ class SpecialPythagoreanTriplet {
         def start = System.currentTimeMillis()
         def product = eulerMath.getSpecialPyTripletProduct()
         println "Elapsed Time: ${(System.currentTimeMillis() - start) / 1000.0} seconds"
-        return product
+        Mono.just product
     }
 
 }

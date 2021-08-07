@@ -4,6 +4,8 @@ import com.fairwaytech.euler.util.EulerMath
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Mono
+
 /**
  * Problem 10 - Summation of Primes
  *
@@ -33,7 +35,7 @@ class SummationOfPrimes {
 
         println "Elapsed Time: ${(System.currentTimeMillis() - start) / 1000.0} seconds"
 
-        total
+        Mono.just total
     }
 
 }

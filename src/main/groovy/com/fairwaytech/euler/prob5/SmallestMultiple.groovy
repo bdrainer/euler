@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Mono
+
 /**
  * Problem 5 - Smallest Multiple
  *
@@ -19,8 +21,8 @@ class SmallestMultiple {
     EulerMath eulerMath
 
     @GetMapping("/smallestmultiple/{maxValue}")
-    int calculate(@PathVariable int maxValue) {
+    def calculate(@PathVariable int maxValue) {
         def rangeList = (1..maxValue).collect { it }
-        return eulerMath.lcm(rangeList)
+        Mono.just eulerMath.lcm(rangeList as List<BigInteger>)
     }
 }

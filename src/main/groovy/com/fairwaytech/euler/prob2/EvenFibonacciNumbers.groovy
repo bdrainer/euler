@@ -5,8 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
+import reactor.core.publisher.Mono
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 
 /**
  * Problem 2 - Even Fibonacci Numbers
@@ -23,9 +24,9 @@ class EvenFibonacciNumbers {
     @Autowired
     Fibonacci fib
 
-    @GetMapping(value = "/evenfibnumbers/{maxValue}", produces = APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/evenfibnumbers/{maxValue}", produces = APPLICATION_JSON_VALUE)
     def calculate(@PathVariable BigInteger maxValue) {
-        return fib.evenSum(maxValue)
+        Mono.just fib.evenSum(maxValue)
     }
 
 }

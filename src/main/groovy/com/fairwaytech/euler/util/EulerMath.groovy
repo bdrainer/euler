@@ -40,7 +40,6 @@ class EulerMath {
         boolean found = false
         def (max, fx, fy, fz) = [500, 0, 0, 0]
 
-        def s = System.currentTimeMillis()
         for (int x = 1; x < max; ++x) {
             if (found) break
             for (int y = x + 1; y < max; ++y) {
@@ -96,7 +95,7 @@ class EulerMath {
      * zero, is the largest positive integer that divides the numbers without a remainder. For example, the GCD
      * of 8 and 12 is 4.
      */
-    BigInteger gcd(BigInteger a, BigInteger b) {
+    BigInteger gcd(def a, def b) {
         if (b == 0) return a
         gcd(b, a % b)
     }
@@ -106,11 +105,11 @@ class EulerMath {
      * 3 and 4 are 0, 12, 24, .... The least common multiple (LCM) of two numbers is the smallest
      * number (not zero) that is a multiple of both.
      */
-    BigInteger lcm(BigInteger a, BigInteger b) {
+    BigInteger lcm(def a, def b) {
         a * b / gcd(a, b)
     }
 
-    BigInteger lcm(List<BigInteger> input) {
+    BigInteger lcm(def input) {
         BigInteger result = input[0]
         for (BigInteger i = 1; i < input.size(); i++) {
             result = lcm(result, input[i])
@@ -118,7 +117,7 @@ class EulerMath {
         return result
     }
 
-    def sumSquareDiff(int maxValue) {
+    BigInteger sumSquareDiff(int maxValue) {
         def sum = BigInteger.ZERO, sumOfSqr = BigInteger.ZERO
 
         (1..maxValue).each() {
@@ -167,7 +166,11 @@ class EulerMath {
         result
     }
 
-    BigInteger calculatePrime(BigInteger n) {
+    def calculatePrime(Integer n) {
+        calculatePrime(n as BigInteger)
+    }
+
+    def calculatePrime(BigInteger n) {
         BigInteger numberOfPrimes = 0, prime = 1
         while (numberOfPrimes < n) {
             ++prime
@@ -178,6 +181,10 @@ class EulerMath {
         return prime
     }
 
+    boolean isPrime(Integer n) {
+        isPrime(n as BigInteger)
+    }
+
     boolean isPrime(BigInteger n) {
         if (n < 2) {
             return false
@@ -185,7 +192,7 @@ class EulerMath {
             return true
         }
 
-        for (int i = 2; i < Math.pow(n, 0.5) + 1; i++) {
+        for (int i = 2; i < Math.pow(n as BigDecimal, 0.5) + 1; i++) {
             if (n % i == 0) {
                 return false
             }
@@ -205,11 +212,11 @@ class EulerMath {
         return i;
     }
 
-    def largestPalindromeProduct() {
-        def result
+    Long largestPalindromeProduct() {
+        Long result
         (999..100).each { x ->
             (x..100).each { y ->
-                def check = x * y
+                Long check = x * y
                 if (isPalindrome(check)) {
                     if (check > result) {
                         println "$x times $y = $check"
