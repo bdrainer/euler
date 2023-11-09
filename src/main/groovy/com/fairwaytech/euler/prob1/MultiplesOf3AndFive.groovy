@@ -1,5 +1,6 @@
 package com.fairwaytech.euler.prob1
 
+import com.fairwaytech.euler.exception.BadRequestException
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
@@ -18,8 +19,11 @@ class MultiplesOf3AndFive {
 
     @GetMapping("/multiplesof3and5/{maxValue}")
     def calculate(@PathVariable int maxValue) {
+        if (maxValue > 1000) {
+            return Mono.error(new BadRequestException("Value cannot exceed 1000"))
+        }
         int val = 0
-        (1..<maxValue).each {
+        (1..<maxValue+1).each {
             val += (it % 3 == 0 || it % 5 == 0) ? it : 0
         }
         Mono.just val

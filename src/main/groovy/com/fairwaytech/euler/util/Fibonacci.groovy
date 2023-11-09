@@ -5,6 +5,10 @@ import org.springframework.stereotype.Component
 @Component
 class Fibonacci {
 
+    BigInteger calculate(int term) {
+        calculate(term as BigInteger)
+    }
+
     /**
      * Uses Groovy's built in "memoize" to increase performance, but the method suffers
      * from stackoverflow when the term is somewhere over 600.
@@ -16,9 +20,12 @@ class Fibonacci {
         def mem
         def fib = { n -> n < 2 ? n : mem(n - 1) + mem(n - 2) }
         mem = fib.memoize()
-        return fib(term)
+        fib(term) as BigInteger
     }
 
+    BigInteger evenSum(int limit) {
+        evenSum(limit as BigInteger)
+    }
     /**
      * Calculates the sum of the even Fibonacci values up to but excluding the limit argument.
      *
@@ -27,21 +34,20 @@ class Fibonacci {
      */
     BigInteger evenSum(BigInteger limit) {
         def fibber = new Fibber()
-        def sum = new BigInteger(0)
+        BigInteger sum = BigInteger.ZERO
 
         // while limit > fibber.fib
-        while (limit.compareTo(fibber.fib) == 1) {
+        while (limit <=> fibber.fib == BigInteger.ONE) {
             if (fibber.fib % 2 == 0) {
                 sum += fibber.fib
             }
             fibber.next()
         }
-
-        return sum
+        sum
     }
 
     static class Fibber {
-        def BigInteger old = 0, fib = 1, term = 1
+        BigInteger old = 0, fib = 1, term = 1
 
         def next() {
             // multiple assignments

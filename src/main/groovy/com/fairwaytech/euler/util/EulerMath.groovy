@@ -166,7 +166,7 @@ class EulerMath {
         result
     }
 
-    def calculatePrime(Integer n) {
+    BigInteger calculatePrime(Integer n) {
         calculatePrime(n as BigInteger)
     }
 

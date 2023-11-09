@@ -122,7 +122,7 @@ class EulerMathTest {
         assertValue(eulerMath.calculatePrime(10001), 104743)
     }
 
-    void assertValue(BigInteger actual, def expected) {
-        assertThat(actual).isEqualByComparingTo(new BigInteger(expected))
+    static void assertValue(BigInteger actual, def expected) {
+        assertThat(actual).isEqualByComparingTo(expected as BigInteger)
     }
 }
