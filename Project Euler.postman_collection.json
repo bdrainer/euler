@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "81e8f052-b4e0-44e8-9eb5-12f2a1ab2530",
+		"name": "Project Euler",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "970459"
+	},
+	"item": [
+		{
+			"name": "Prob 1: Multiples of 3 and 5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/multiplesof3and5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"multiplesof3and5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prob 2: Even Fibonacci Numbers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/evenfibnumbers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"evenfibnumbers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prob 3: Large Prime Factor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/largestprimefactor",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"largestprimefactor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prob 4: Largest Palindrome Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/largestpalindromeproduct",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"largestpalindromeproduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prob 5: Smallest Multiple",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/smallestmultiple",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"smallestmultiple"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prob 6: Sum Square Diff",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sumsquarediff",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sumsquarediff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prob 7: 10001st Prime",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/nthprime",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"nthprime"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prob 8: Largest Product In A Series",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/largestproductinseries",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"largestproductinseries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prob 9: Special Pythagorean Triplet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/specialpytriplet",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"specialpytriplet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prob 10: Summation of Primes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/summationofprimes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"summationofprimes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
