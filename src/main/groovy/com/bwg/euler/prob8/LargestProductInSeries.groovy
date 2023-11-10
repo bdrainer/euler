@@ -1,10 +1,19 @@
 package com.bwg.euler.prob8
 
+import groovy.time.TimeCategory
+import groovy.util.logging.Log
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 /**
  * Problem 8
+ *
+ * The four adjacent digits in the 1000 -digit number that have the greatest product are 9  * 9 * 8 * 9 = 5832.
+ *
+ * Find the thirteen adjacent digits in the 1000 -digit number that have the greatest product. What is the value of this product?
+ *
+ * Answer: 23514624000
  */
+@Log
 @RestController
 class LargestProductInSeries {
 
@@ -12,6 +21,7 @@ class LargestProductInSeries {
 
     @GetMapping("/largestproductinseries")
     def getLargestProduct() {
+        def start = new Date()
 
         def list = []
 
@@ -31,7 +41,7 @@ class LargestProductInSeries {
             def product = 1 as BigInteger
 
             it.each { digit ->
-                product *= digit
+                product *= digit as BigInteger
             }
 
             if (largestProduct < product) {
@@ -40,6 +50,7 @@ class LargestProductInSeries {
             }
         }
 
+        log.info "Problem 8 execution time: ${TimeCategory.minus(new Date(), start)}"
         return largestProduct
     }
 

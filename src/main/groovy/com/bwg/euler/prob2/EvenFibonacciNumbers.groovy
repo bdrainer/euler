@@ -1,6 +1,9 @@
 package com.bwg.euler.prob2
 
 import com.bwg.euler.util.Fibonacci
+import com.bwg.euler.util.Validator
+import groovy.time.TimeCategory
+import groovy.util.logging.Log
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -17,16 +20,30 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE
  *
  * By considering the terms in the Fibonacci sequence whose values do not exceed four
  * million, find the sum of the even-valued terms.
+ *
+ * Answer: 4613732
  */
+@Log
 @RestController
 class EvenFibonacciNumbers {
+
+    private static final BigInteger LIMIT = 4000000
 
     @Autowired
     Fibonacci fib
 
-    @GetMapping(value = "/evenfibnumbers/{limit}", produces = APPLICATION_JSON_VALUE)
-    def calculate(@PathVariable BigInteger limit) {
-        Mono.just fib.evenSum(limit)
+    @GetMapping(value = "/evenfibnumbers/{value}", produces = APPLICATION_JSON_VALUE)
+    def calculate(@PathVariable BigInteger value) {
+        def start = new Date()
+
+        log.info("Finding the even fibonacci numbers sum for $value")
+        Validator.checkExceedsMaxValue(value, LIMIT)
+                .map { ex -> Mono.error(ex) }
+                .orElseGet {
+                    def sum = fib.evenSum(value)
+                    log.info "Problem 2 execution time: ${TimeCategory.minus(new Date(), start)}"
+                    Mono.just sum
+                }
     }
 
 }

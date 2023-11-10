@@ -1,6 +1,8 @@
 package com.bwg.euler.prob6
 
 import com.bwg.euler.util.EulerMath
+import groovy.time.TimeCategory
+import groovy.util.logging.Log
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
@@ -24,6 +26,7 @@ import reactor.core.publisher.Mono
  *
  * Answer: 25164150
  */
+@Log
 @RestController
 class SumSquareDiff {
 
@@ -32,6 +35,9 @@ class SumSquareDiff {
 
     @GetMapping("sumsquarediff")
     Mono<BigInteger> sumSquareDifference() {
-        Mono.just eulerMath.sumSquareDiff(100)
+        def start = new Date()
+        def diff = eulerMath.sumSquareDiff(100)
+        log.info "Problem 6 execution time: ${TimeCategory.minus(new Date(), start)}"
+        Mono.just diff
     }
 }

@@ -26,6 +26,7 @@ class Fibonacci {
     BigInteger evenSum(int limit) {
         evenSum(limit as BigInteger)
     }
+
     /**
      * Calculates the sum of the even Fibonacci values up to but excluding the limit argument.
      *
@@ -37,7 +38,7 @@ class Fibonacci {
         BigInteger sum = BigInteger.ZERO
 
         // while limit > fibber.fib
-        while (limit <=> fibber.fib == BigInteger.ONE) {
+        while (limit > fibber.fib) {
             if (fibber.fib % 2 == 0) {
                 sum += fibber.fib
             }

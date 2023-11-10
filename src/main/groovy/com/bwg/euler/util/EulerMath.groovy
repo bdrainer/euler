@@ -1,9 +1,11 @@
 package com.bwg.euler.util
 
+import groovy.util.logging.Log
 import org.springframework.stereotype.Component
 
 import static java.lang.String.valueOf
 
+@Log
 @Component
 class EulerMath {
 
@@ -55,7 +57,7 @@ class EulerMath {
         }
         def product = fx * fy * fz
 
-        if (found) println "FOUND! -> [$fx,$fy,$fz] : $product"
+        if (found) log.info "FOUND! -> [$fx,$fy,$fz] : $product"
 
         return product
     }
@@ -162,7 +164,6 @@ class EulerMath {
                 result.add(i.key)
             }
         }
-
         result
     }
 
@@ -178,7 +179,7 @@ class EulerMath {
                 ++numberOfPrimes
             }
         }
-        return prime
+        prime
     }
 
     boolean isPrime(Integer n) {
@@ -197,7 +198,7 @@ class EulerMath {
                 return false
             }
         }
-        return true
+        true
     }
 
     BigInteger largestPrimeFactor(BigInteger number) {
@@ -209,7 +210,7 @@ class EulerMath {
                 --i
             }
         }
-        return i;
+        i
     }
 
     Long largestPalindromeProduct() {
@@ -219,7 +220,7 @@ class EulerMath {
                 Long check = x * y
                 if (isPalindrome(check)) {
                     if (check > result) {
-                        println "$x times $y = $check"
+                        log.info "$x times $y = $check"
                         result = check
                     }
                 }
@@ -231,6 +232,6 @@ class EulerMath {
     boolean isPalindrome(def value) {
         def valueString = valueOf(value)
         def reverse = valueString.reverse()
-        valueString.equals(reverse)
+        valueString == reverse
     }
 }
