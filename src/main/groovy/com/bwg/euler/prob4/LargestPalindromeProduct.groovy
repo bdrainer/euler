@@ -1,6 +1,6 @@
 package com.bwg.euler.prob4
 
-
+import com.bwg.euler.util.EulerMath
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono
 class LargestPalindromeProduct {
 
     @Autowired
-    com.bwg.euler.util.EulerMath eulerMath
+    EulerMath eulerMath
 
     @GetMapping("/largestpalindromeproduct")
     def getLargestPalindromProduct() {

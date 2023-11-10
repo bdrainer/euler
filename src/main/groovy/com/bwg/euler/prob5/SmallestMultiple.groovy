@@ -1,6 +1,6 @@
 package com.bwg.euler.prob5
 
-
+import com.bwg.euler.util.EulerMath
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono
 class SmallestMultiple {
 
     @Autowired
-    com.bwg.euler.util.EulerMath eulerMath
+    EulerMath eulerMath
 
     @GetMapping("/smallestmultiple/{maxValue}")
     def calculate(@PathVariable int maxValue) {

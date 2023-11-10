@@ -1,6 +1,6 @@
 package com.bwg.euler.prob3
 
-
+import com.bwg.euler.util.EulerMath
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono
 class LargestPrimeFactor {
 
     @Autowired
-    com.bwg.euler.util.EulerMath eulerMath
+    EulerMath eulerMath
 
     @GetMapping("/largestprimefactor/{value}")
     def getNthPrime(@PathVariable BigInteger value) {
