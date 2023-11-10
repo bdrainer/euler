@@ -30,6 +30,7 @@ class SpecialPythagoreanTriplet {
     @GetMapping("/specialpytriplet")
     def get() {
         def start = new Date()
+        log.info"Problem 9: Finding the product of the one Pythagorean triplet for which a + b + c = 1000"
         def product = eulerMath.getSpecialPyTripletProduct()
         log.info "Problem 9 execution time: ${TimeCategory.minus(new Date(), start)}"
         Mono.just product

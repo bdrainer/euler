@@ -5,7 +5,6 @@ import groovy.time.TimeCategory
 import groovy.util.logging.Log
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Mono
 
@@ -22,13 +21,16 @@ import reactor.core.publisher.Mono
 @RestController
 class LargestPrimeFactor {
 
+    static final BigInteger VALUE = 600851475143
+
     @Autowired
     EulerMath eulerMath
 
-    @GetMapping("/largestprimefactor/{value}")
-    def getNthPrime(@PathVariable BigInteger value) {
+    @GetMapping("/largestprimefactor")
+    def getNthPrime() {
         def start = new Date()
-        def factor = eulerMath.largestPrimeFactor(value)
+        log.info"Problem 3: Finding the largest prime factor for $VALUE"
+        def factor = eulerMath.largestPrimeFactor(VALUE)
         log.info "Problem 3 execution time: ${TimeCategory.minus(new Date(), start)}"
         Mono.just factor
 

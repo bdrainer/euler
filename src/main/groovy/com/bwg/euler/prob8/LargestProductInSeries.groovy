@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RestController
 /**
  * Problem 8
  *
- * The four adjacent digits in the 1000 -digit number that have the greatest product are 9  * 9 * 8 * 9 = 5832.
+ * The four adjacent digits in the 1000 digit number that have the greatest product are 9  * 9 * 8 * 9 = 5832.
  *
- * Find the thirteen adjacent digits in the 1000 -digit number that have the greatest product. What is the value of this product?
+ * Find the thirteen adjacent digits in the 1000 digit number that have the greatest product. What is the value of this product?
  *
  * Answer: 23514624000
  */
@@ -22,6 +22,8 @@ class LargestProductInSeries {
     @GetMapping("/largestproductinseries")
     def getLargestProduct() {
         def start = new Date()
+
+        log.info"Problem 8: Finding the thirteen adjacent digits in the 1000 digit number that have the greatest product"
 
         def list = []
 

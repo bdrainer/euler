@@ -21,6 +21,8 @@ import reactor.core.publisher.Mono
 @RestController
 class SummationOfPrimes {
 
+    static final int MAX = 2000000
+
     @Autowired
     EulerMath eulerMath
 
@@ -28,9 +30,9 @@ class SummationOfPrimes {
     def get() {
         def start = new Date()
 
-        def max = 2000000
+        log.info"Problem 10: Finding the sum of all the primes below two million"
 
-        def result = eulerMath.getPrimes(max)
+        def result = eulerMath.getPrimes(MAX)
 
         def total = BigInteger.ZERO
         result.each {

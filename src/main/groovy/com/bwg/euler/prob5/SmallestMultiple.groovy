@@ -29,6 +29,7 @@ class SmallestMultiple {
     @GetMapping("/smallestmultiple")
     def calculate() {
         def start = new Date()
+        log.info"Problem 5: Finding the smallest positive number that is evenly divisible by all of the numbers from 1 to 20"
         def rangeList = (1..MAX_VALUE).collect { it }
         def lcm = eulerMath.lcm(rangeList as List<BigInteger>)
         log.info "Problem 5 execution time: ${TimeCategory.minus(new Date(), start)}"

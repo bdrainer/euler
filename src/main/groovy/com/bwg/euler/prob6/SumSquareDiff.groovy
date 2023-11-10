@@ -36,6 +36,7 @@ class SumSquareDiff {
     @GetMapping("sumsquarediff")
     Mono<BigInteger> sumSquareDifference() {
         def start = new Date()
+        log.info"Problem 6: Finding the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum"
         def diff = eulerMath.sumSquareDiff(100)
         log.info "Problem 6 execution time: ${TimeCategory.minus(new Date(), start)}"
         Mono.just diff

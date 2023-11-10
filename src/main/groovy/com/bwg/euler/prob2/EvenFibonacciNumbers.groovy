@@ -1,12 +1,10 @@
 package com.bwg.euler.prob2
 
 import com.bwg.euler.util.Fibonacci
-import com.bwg.euler.util.Validator
 import groovy.time.TimeCategory
 import groovy.util.logging.Log
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Mono
 
@@ -32,18 +30,13 @@ class EvenFibonacciNumbers {
     @Autowired
     Fibonacci fib
 
-    @GetMapping(value = "/evenfibnumbers/{value}", produces = APPLICATION_JSON_VALUE)
-    def calculate(@PathVariable BigInteger value) {
+    @GetMapping(value = "/evenfibnumbers", produces = APPLICATION_JSON_VALUE)
+    def calculate() {
         def start = new Date()
-
-        log.info("Finding the even fibonacci numbers sum for $value")
-        Validator.checkExceedsMaxValue(value, LIMIT)
-                .map { ex -> Mono.error(ex) }
-                .orElseGet {
-                    def sum = fib.evenSum(value)
-                    log.info "Problem 2 execution time: ${TimeCategory.minus(new Date(), start)}"
-                    Mono.just sum
-                }
+        log.info"Problem 2: Finding the even fibonacci numbers sum for $LIMIT"
+        def sum = fib.evenSum(LIMIT)
+        log.info "Problem 2 execution time: ${TimeCategory.minus(new Date(), start)}"
+        Mono.just sum
     }
 
 }

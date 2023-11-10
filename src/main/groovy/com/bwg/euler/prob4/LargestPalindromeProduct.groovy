@@ -28,6 +28,7 @@ class LargestPalindromeProduct {
     @GetMapping("/largestpalindromeproduct")
     def getLargestPalindromProduct() {
         def start = new Date()
+        log.info"Problem 4: Finding the largest palindrome made from the product of two 3-digit numbers"
         def product = eulerMath.largestPalindromeProduct()
         log.info "Problem 4 execution time: ${TimeCategory.minus(new Date(), start)}"
         Mono.just product

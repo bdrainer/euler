@@ -29,6 +29,7 @@ class Find10001stPrime {
     @GetMapping("/nthprime")
     def getNthPrime() {
         def start = new Date()
+        log.info"Problem 7: Finding the 10001st prime number"
         def prime = eulerMath.calculatePrime(N_TH)
         log.info "Problem 7 execution time: ${TimeCategory.minus(new Date(), start)}"
         Mono.just prime
