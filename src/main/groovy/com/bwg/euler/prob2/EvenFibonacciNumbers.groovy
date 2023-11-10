@@ -24,9 +24,9 @@ class EvenFibonacciNumbers {
     @Autowired
     Fibonacci fib
 
-    @GetMapping(value = "/evenfibnumbers/{maxValue}", produces = APPLICATION_JSON_VALUE)
-    def calculate(@PathVariable BigInteger maxValue) {
-        Mono.just fib.evenSum(maxValue)
+    @GetMapping(value = "/evenfibnumbers/{limit}", produces = APPLICATION_JSON_VALUE)
+    def calculate(@PathVariable BigInteger limit) {
+        Mono.just fib.evenSum(limit)
     }
 
 }
