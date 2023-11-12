@@ -2,7 +2,7 @@
 
 [Project Euler](https://projecteuler.net/) solutions implemented with Groovy.
 
-Check the archives on Project Euler as most the probles are there.
+Check the archives on Project Euler as most the problems are there.
 
 ## Overview
 
@@ -16,7 +16,7 @@ Development of this app has been done on a Mac.
 
 I am using [SDK Man](https://sdkman.io/) to provide the JDK and Gradle.
 
-JDK: 21: `sdk install java 21-graalce`
+JDK: 21: `sdk install java 21-amzn`
 
 Gradle: 8.4: `sdk install gradle 8.4`
 
