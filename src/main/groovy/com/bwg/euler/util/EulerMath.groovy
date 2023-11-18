@@ -98,8 +98,7 @@ class EulerMath {
      * of 8 and 12 is 4.
      */
     BigInteger gcd(def a, def b) {
-        if (b == 0) return a
-        gcd(b, a % b)
+        b == 0 ? a : gcd(b, a % b)
     }
 
     /**
